@@ -13,30 +13,27 @@ struct _nodo {
 struct _nodo *primero, *ultimo;
 
 /* Añadir nodo al final de la lista*/
-void add_last_nodo(struct _nodo nodo_padre, char nombre_ciudad[20], int costo_viaje) {
+struct _nodo add_last_nodo(struct _nodo *nodo_padre, char nombre_ciudad[20], int costo_viaje) {
 		/* se define */
 		struct _nodo *nuevo;
 		/* se reserva memmoria para el nodo*/
 		nuevo = (struct _nodo*)malloc(sizeof(struct _nodo));
 		if (nuevo==NULL) printf( "No hay memoria disponible!\n");
 		
-		if (primero==NULL) { /* Es primer nodo */
+		if (nodo_padre==NULL) { /* Es primer nodo */
 			printf( "1ro nodo \n");
-			primero=nuevo;
-			strcpy(primero->nombre,nombre_ciudad);
-			primero->costo = costo_viaje;
-			primero->anterior=NULL;
-     		primero->siguiente=NULL;
-     		ultimo=primero;
-     		return primero;
+			strcpy(nuevo->nombre,nombre_ciudad);
+			nuevo->costo = costo_viaje;
+			nuevo->anterior=NULL;
+     		nuevo->siguiente=NULL;
+     		return *nuevo;
      	}else{ /* Ingresar  otros nodos*/
      		printf( "last nodo \n");
      		strcpy(nuevo->nombre,nombre_ciudad);
      		nuevo->costo = costo_viaje;
-     		nuevo->anterior
+     		nuevo->anterior=nodo_padre;
      		nuevo->siguiente=NULL;
-     		ultimo->siguiente=nuevo;
-     		ultimo=nuevo;
+     		return *nuevo;
      	}
 
 }
@@ -59,20 +56,50 @@ void print_list(){
     printf("\n");
 }
 
+/* Imprime lista*/
+void print_list2(){
+    int total_viaje=0;
+    struct _nodo *auxiliar;
+    auxiliar = primero;
+    printf("\nMostrando la lista completa:\n");
+    if (auxiliar==NULL) printf( "\nLa lista está vacía!!\n" );
+    while (auxiliar!=NULL) {
+        total_viaje=total_viaje+auxiliar->costo;
+        printf("Ciudad: %s", auxiliar->nombre);
+        printf(" Costo: %d", auxiliar->costo);
+        printf("\n");
+        auxiliar = auxiliar->siguiente;
+    }
+    printf("Total Viaje: %d", total_viaje);
+    printf("\n");
+}
+
 
 int main() {
 
  	/*
    	ultimo = (struct _nodo *) NULL;
 	*/ 
-    
-    add_last_nodo("A", 1000);
-    add_last_nodo("B", 500);
-    add_last_nodo("C", 100);
-	add_last_nodo("D", 30);
-	
 
-	print_list();
+    struct _nodo *nodA, *nodB, *nodC, *nodD;
+    
+    *nodA = add_last_nodo(NULL,"A", 1000);
+
+    printf("Ciudad: %s", nodA->nombre);
+    printf("\n");
+
+    *nodB = add_last_nodo(nodA, "B", 500);
+    
+    printf("Ciudad: %s", nodB->nombre);
+    printf("\n");
+
+
+    /*
+    *nodC = add_last_nodo(nodB, "C", 100);
+	*nodD = add_last_nodo(nodC, "D", 30);
+	*/
+
+	/*print_list();*/
 
 
     /*
