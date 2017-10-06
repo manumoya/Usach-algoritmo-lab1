@@ -33,6 +33,7 @@ void add_last_nodo(struct _nodo nodo_padre, char nombre_ciudad[20], int costo_vi
      		printf( "last nodo \n");
      		strcpy(nuevo->nombre,nombre_ciudad);
      		nuevo->costo = costo_viaje;
+     		nuevo->anterior
      		nuevo->siguiente=NULL;
      		ultimo->siguiente=nuevo;
      		ultimo=nuevo;
