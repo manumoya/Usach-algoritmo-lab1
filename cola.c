@@ -1,15 +1,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
- 
+#include <ctype.h> 
+
 struct _nodo {
 	char valor[20];
 	struct _nodo *siguiente;
 };
 
+/*  FUNCIONES DE COLA  */
 struct _nodo *primero, *ultimo;
 
-/* Añadir nodo al final de la lista*/
+/* cola push */
 void push(char valor[20]) {
 	/* Crear un nodo nuevo */
   struct _nodo *nuevo;
@@ -30,10 +32,13 @@ void push(char valor[20]) {
   ultimo = nuevo;
 }
 
+/* cola pop */
 void pop() {
   struct _nodo *nodo_pop;
-  if (primero==NULL) printf( "\nLa lista está vacía!! (pop)\n" );
-
+  if (primero==NULL){
+    printf( "\nLa lista está vacía!! (pop)\n" );
+    return;
+  }  
   nodo_pop = primero;
   primero = nodo_pop->siguiente;
   
@@ -42,8 +47,7 @@ void pop() {
   free(nodo_pop);
 }
 
-
-
+/* Imprimir cola */
 void print_list(){
 	struct _nodo *auxiliar;
 	auxiliar = primero;
@@ -55,6 +59,47 @@ void print_list(){
         auxiliar = auxiliar->siguiente;
     }
     printf("\n");
+}
+
+
+
+/*  FUNCIONES DE MATRIZ  */
+char matriz_grafo[5][5];
+
+/* generar grafo */
+void generar_grafo(char vertices[]) {
+  for(int i=0; i<5 && vertices[i] != '\0'; ++i){
+    printf("char: %c", vertices[i] );
+    printf("\n");
+    matriz_grafo[0][i+1]=vertices[i];
+    matriz_grafo[i+1][0]=vertices[i];
+  }
+}
+
+/* imprimir grafo */
+void imprimir_grafo(){
+  for (int i=0; i<5; i++){
+    for (int j=0; j<5; j++){
+      printf("%c ", matriz_grafo[i][j]);
+    }
+    printf("\n");   
+  }
+}
+
+int posicion_nodo(char letra[]){
+  int posicion=0;
+
+  printf("letra %s ", letra);
+  printf("\n"); 
+
+  for (int i=0; i<5; i++){
+    if ( matriz_grafo[0][i] == letra[0]){
+      i=6;
+      posicion--;
+    }
+    posicion++;
+  }  
+  return posicion;
 }
 
 int main() {
@@ -69,7 +114,10 @@ int main() {
   pop();
   print_list();
   pop();
-  pop();
-  pop();
-  pop();
+  
+  generar_grafo("abcd");
+  imprimir_grafo();
+  printf("pos c %d ", posicion_nodo("c") ); 
+  printf("pos a %d ", posicion_nodo("a") ); 
+
 }
