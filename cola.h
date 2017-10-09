@@ -1,6 +1,7 @@
 
 typedef struct _nodo {
-    char valor[20];
+    char nombre[20];
+    int costo;
     struct _nodo *siguiente;
 }Nodo;
 
@@ -18,21 +19,22 @@ void inicializa(Cola *cola){
 }
   
 /* cola push */
-void push(Cola *cola, char valor[20]) {
+void push(Cola *cola, char nombre[20], int costo) {
 	/* Crear un nodo nuevo */
   Nodo *nuevo;
   nuevo = (Nodo*)malloc(sizeof(Nodo));
 
-  strcpy(nuevo->valor,valor);
+  strcpy(nuevo->nombre,nombre);
+  nuevo->costo=costo;
   /* Este será el último nodo, no debe tener siguiente */
   nuevo->siguiente = NULL;
 
   /* Si primero es NULL, la cola estaba vacía, ahora primero apuntará también al nuevo nodo */
-  printf("\n Acá pushh ini: %s", nuevo->valor);
+  printf("\n Acá pushh ini: %s", nuevo->nombre);
   if(cola->inicio==NULL){
     printf("\nAcá 1ro:\n");
     cola->inicio = nuevo;
-    printf("\n Acá pushh 1ro: %s", cola->inicio->valor);
+    printf("\n Acá pushh 1ro: %s", cola->inicio->nombre);
   
   }
 
@@ -55,7 +57,7 @@ void pop(Cola *cola) {
   nodo_pop = cola->inicio;
   cola->inicio = nodo_pop->siguiente;
   
-  printf("pop primero: %s", nodo_pop->valor);
+  printf("pop primero: %s", nodo_pop->nombre);
   printf("\n");
   free(nodo_pop);
 }
@@ -67,8 +69,9 @@ void print_cola(Cola *cola){
     printf("\nMostrando la lista completa:\n");
     if (auxiliar==NULL) printf( "\nLa lista está vacía!!\n" );
     while (auxiliar!=NULL) {
-    	printf("valor: %s", auxiliar->valor);
-        printf("\n");
+    	printf("nombre: %s", auxiliar->nombre);
+      printf(" costo: %d", auxiliar->costo);
+      printf("\n");
         auxiliar = auxiliar->siguiente;
     }
     printf("\n");

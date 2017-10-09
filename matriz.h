@@ -2,6 +2,7 @@
 int largo =5;
 char matriz_grafo[5][5];
 
+
 /* generar grafo */
 void generar_grafo(char vertices[]) {
   for(int i=0; i<5 && vertices[i] != '\0'; ++i){
@@ -20,8 +21,7 @@ void imprimir_grafo(){
         printf("%c ", matriz_grafo[i][j]);
       }else{
         printf("%d ", matriz_grafo[i][j]);
-      }
-      
+      }  
     }
     printf("\n");   
   }
