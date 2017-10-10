@@ -12,4 +12,4 @@ c. Recorrer rutas del nodo
 
 Compliar: gcc viaje.c -o viaje.out
 
-Correr: ./viaje.out 
+Correr: ./viaje.out
