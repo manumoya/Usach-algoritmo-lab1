@@ -49,14 +49,14 @@ void recorre_rutas(int posNodoIni, Pila *pila){
       if (nuevas_rutas[i]!=0){
         char nombre_nodo = matriz_grafo[nuevas_rutas[i]][0];
         int costo_nodo =matriz_grafo[posNodoIni][nuevas_rutas[i]];
-        //push(cola, &nombre_nodo, costo_nodo);
+        push(pila, &nombre_nodo, costo_nodo);
         printf("Push ruta \n");
         //print_cola(cola);
         //printf(" nodo nombre %c", nombre_nodo); 
         //printf(" - nodo costo %d", costo_nodo); 
 
         recorre_rutas(nuevas_rutas[i], pila);
-        //pop(cola);
+        pop(pila);
         printf("ruta %d ", nuevas_rutas[i]);
         printf("\n");
       }
@@ -73,7 +73,7 @@ int main() {
     return -1;
   inicializa(pila);
   
-
+/*
   push(pila,"A",1);
   
   push(pila,"B",2);
@@ -83,12 +83,11 @@ int main() {
   print_pila(pila);
   pop(pila);
   print_pila(pila);
-  /*
+  
   pop(pila);
   print_pila(pila);*/
   
 
-  /*
   generar_grafo("abcd");
   //imprimir_grafo();
   agregar_adyacencia("a", "b", 1);
@@ -97,9 +96,8 @@ int main() {
   agregar_adyacencia("d", "c", 4);
   imprimir_grafo();
   
-  push(cola,"a", 0);
-  recorre_rutas( posicion_nodo("a"), cola);
-  */
-
+  push(pila,"a", 0);
+  recorre_rutas( posicion_nodo("a"), pila);
+  
   
 }
