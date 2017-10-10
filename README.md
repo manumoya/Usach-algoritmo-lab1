@@ -8,3 +8,9 @@ c. Recorrer rutas del nodo
       calcular costo viaje
    Sino
       calcular todas las rutas -de adyacencia- (recorrer rutas, recursivo)
+
+Compliar:
+gcc viaje.c -o viaje.out
+
+Correr:
+./viaje.out 
