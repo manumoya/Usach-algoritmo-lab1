@@ -30,11 +30,13 @@ void push(Cola *cola, char nombre[20], int costo) {
   nuevo->siguiente = NULL;
 
   /* Si primero es NULL, la cola estaba vacía, ahora primero apuntará también al nuevo nodo */
-  printf("\n Acá pushh ini: %s", nuevo->nombre);
+  printf(" \n pushh nodo: %s", nuevo->nombre);
+  printf("\n");
+  
   if(cola->inicio==NULL){
-    printf("\nAcá 1ro:\n");
+    //printf("\nAcá 1ro:\n");
     cola->inicio = nuevo;
-    printf("\n Acá pushh 1ro: %s", cola->inicio->nombre);
+    //printf("\n Acá pushh 1ro: %s", cola->inicio->nombre);
   
   }
 
@@ -66,7 +68,7 @@ void pop(Cola *cola) {
 void print_cola(Cola *cola){
 	Nodo *auxiliar;
 	auxiliar = cola->inicio;
-    printf("\nMostrando la lista completa:\n");
+    printf("\nMostrando cola completa:\n");
     if (auxiliar==NULL) printf( "\nLa lista está vacía!!\n" );
     while (auxiliar!=NULL) {
     	printf("nombre: %s", auxiliar->nombre);
