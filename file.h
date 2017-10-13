@@ -72,9 +72,16 @@ void carga_matriz(int nro_linea, char linea[]){
 		get_grafo(nroNodos+1); 
 	}else{
 		// carga rutas
-		printf( "Orig : %c \n", get_val_otras_linea(linea, 'O'));
-		printf( "Dest : %c \n", get_val_otras_linea(linea, 'D'));
-		printf( "Cos : %c \n", get_val_otras_linea(linea, 'C'));	
+		int costo = (int)get_val_otras_linea(linea, 'C') -48;
+		char origen[1], destino[1];
+		origen[0]  = get_val_otras_linea(linea, 'O');
+		destino[0] = get_val_otras_linea(linea, 'D');
+
+		agregar_adyacencia(origen, destino, costo);
+
+		printf( "Orig : %c \n", origen[0]);
+		printf( "Dest : %c \n", destino[0]);
+		printf( "Cos : %d \n", costo);	
 	}
 	printf("\n");	
 }

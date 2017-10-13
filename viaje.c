@@ -89,25 +89,26 @@ int main() {
   print_pila(pila);*/
   
 
-  //generar_grafo("abcd");
+  //generar_grafo("ABCD");
   //imprimir_grafo();
+
 
   abrir_archivo();
   leer_archivo();
   cerrar_archivo();
 
-  imprimir_grafo();
+  //imprimir_grafo();
 
   /*
   agregar_adyacencia("A", "B", 1);
-  agregar_adyacencia("B", "C", 2);
-  agregar_adyacencia("C", "D", 3);
+  agregar_adyacencia("A", "C", 2);
+  agregar_adyacencia("A", "D", 3);
   agregar_adyacencia("D", "C", 4);
   imprimir_grafo();
   */
-  
-  //push(pila,"A", 0);
-  //recorre_rutas( posicion_nodo("A"), pila);
+
+  push(pila,"A", 0);
+  recorre_rutas( posicion_nodo("A"), pila);
 
   
   
