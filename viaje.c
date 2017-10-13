@@ -3,6 +3,7 @@
 #include <string.h>
 #include "pila.h"
 #include "matriz.h"
+#include "file.h"
 
 void resetear_rutas(int arrRutas[]){
   for (int i=0; i<5; i++)
@@ -98,6 +99,8 @@ int main() {
   
   push(pila,"a", 0);
   recorre_rutas( posicion_nodo("a"), pila);
-  
+
+  abrir_archivo();
+  cerrar_archivo();
   
 }
