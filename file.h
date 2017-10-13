@@ -59,9 +59,17 @@ void carga_matriz(int nro_linea, char linea[]){
 	if (nro_linea==1){
 		//carga primera linea
 		//linea2 = linea;
-		printf( "NRO : %c \n", get_val_prim_linea(linea, 'N'));
+		int nroNodos = (int)get_val_prim_linea(linea, 'N') -48;
+		printf( "NRO : %d \n", nroNodos);
 		//linea2 = linea;
 		printf( "NOD : %c \n", get_val_prim_linea(linea, 'D'));
+
+		//printf("largo fila %d", len_linea(get_grafo(5)));
+		//char cad[5];
+
+		printf( "largo grafo : %d \n", nroNodos+1);
+
+		get_grafo(nroNodos+1); 
 	}else{
 		// carga rutas
 		printf( "Orig : %c \n", get_val_otras_linea(linea, 'O'));

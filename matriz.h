@@ -3,16 +3,40 @@ int largo =5;
 char matriz_grafo[5][5];
 
 
+void resetear_grafo(char arreglo[]){
+  for (int i=0; i<26; i++)
+      arreglo[i]='\0';
+}
+
 /* generar grafo */
 void generar_grafo(char vertices[]) {
   for(int i=0; i<5 && vertices[i] != '\0'; ++i){
-    printf("char: %c", vertices[i] );
+    printf("char graf : %c", vertices[i] );
     printf("\n");
     matriz_grafo[0][i+1]=vertices[i];
     matriz_grafo[i+1][0]=vertices[i];
   }
 }
 
+/* procesa grafo */
+get_grafo(int largo){
+  //int largoGrafo=26;
+
+  printf( "largo matr grafo : %d \n", largo);
+
+
+  char arrGrafoOut[26];
+  resetear_grafo(arrGrafoOut);
+
+  char arrGrafo[26]="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for (int i=0; i<largo; i++){
+      arrGrafoOut[i]=arrGrafo[i];
+      printf("char graf: %c \n", arrGrafoOut[i] );
+  }
+  //return arrGrafoOut[];
+
+  generar_grafo(arrGrafoOut);
+}
 /* imprimir grafo */
 void imprimir_grafo(){
   for (int i=0; i<5; i++){
