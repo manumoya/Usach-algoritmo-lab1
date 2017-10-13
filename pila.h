@@ -33,7 +33,7 @@ void push(Pila *pila, char nombre[20], int costo) {
   printf("\n");
   
   if(pila->inicio==NULL){
-    printf("\n Acá pushh 1ro: %s", pila->inicio->nombre);
+    //printf("\n Acá pushh 1ro: %s ",nuevo->nombre);
     pila->final= nuevo;
   }
 
