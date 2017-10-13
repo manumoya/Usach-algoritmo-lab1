@@ -101,6 +101,7 @@ int main() {
   recorre_rutas( posicion_nodo("a"), pila);
 
   abrir_archivo();
+  leer_archivo();
   cerrar_archivo();
   
 }
