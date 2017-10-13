@@ -29,68 +29,46 @@ int len_linea(char cadena[]){
 }
 
 char get_val_prim_linea(char linea[], char ini_or_nronodo){
-	
 	if ( ini_or_nronodo=='N'){
-    	printf( "Nro : \n");
+    	//printf( "Nro : \n");
         return (linea[0]);
     }
     if (ini_or_nronodo=='D'){
-        printf( "NOD : \n");
+        //printf( "NOD : \n");
     	return (linea[2]);
     }
-        
-	/*
-	char separador[] = " ";
-	char *trozo = NULL;
-	char linea2[100]; 
-	linea2= linea;
-	trozo = strtok( linea2, separador);
-	int cont_trozo=1;
-    
-    while( trozo != NULL ) {
-        printf( "Cont Trozo : %d ", cont_trozo);
-        printf( "Cont Trozo : %c \n", ini_or_nronodo);
-        printf( "Trozo : %s \n", trozo);
-        trozo = strtok( NULL, separador);
-        
-        if (cont_trozo==1 && ini_or_nronodo=='N'){
-        	printf( "Nro : \n");
-        	return (*trozo);
-        	
-       	}
-       	if (cont_trozo==2 && ini_or_nronodo=='D'){
-        	printf( "NOD : \n");
-        	return (*trozo);
-        	
-        }
-        
-        cont_trozo++;
+}
+
+char get_val_otras_linea(char linea[], char tipo_valor){
+	
+	if ( tipo_valor=='O'){
+    	//printf( "Orig : \n");
+        return (linea[0]);
     }
-    */
-
-    //return 'HO';
-
+    if (tipo_valor=='D'){
+        //printf( "Dest : \n");
+    	return (linea[2]);
+    }
+    if (tipo_valor=='C'){
+        //printf( "Cos : \n");
+    	return (linea[4]);
+    }
 }
 
 void carga_matriz(int nro_linea, char linea[]){
-	//for (int i=0; i<len_linea(linea); i++){
-	//	printf("letra %c", linea[i]);
-		//char linea2=linea;
-		
-		if (nro_linea==1){
-			//carga primera linea
-			//linea2 = linea;
-			printf( "NRO : %c \n", get_val_prim_linea(linea, 'N'));
-			//linea2 = linea;
-			printf( "NOD : %c \n", get_val_prim_linea(linea, 'D'));
-		}else{
-			// carga rutas
-
-		}
-
-		
-		printf("\n");	
-	//}
+	if (nro_linea==1){
+		//carga primera linea
+		//linea2 = linea;
+		printf( "NRO : %c \n", get_val_prim_linea(linea, 'N'));
+		//linea2 = linea;
+		printf( "NOD : %c \n", get_val_prim_linea(linea, 'D'));
+	}else{
+		// carga rutas
+		printf( "Orig : %c \n", get_val_otras_linea(linea, 'O'));
+		printf( "Dest : %c \n", get_val_otras_linea(linea, 'D'));
+		printf( "Cos : %c \n", get_val_otras_linea(linea, 'C'));	
+	}
+	printf("\n");	
 }
 
 void leer_archivo(){
@@ -100,7 +78,8 @@ void leer_archivo(){
 	while (!feof(itinerario)){
 		fgets(linea,sizeof(linea),itinerario);
 		
-		printf("largo fila %d", len_linea(linea)); 
+		//printf("largo fila %d", len_linea(linea)); 
+		printf(" fila %d", nro_linea); 
 		printf("\n");
 
 		carga_matriz(nro_linea, linea);
