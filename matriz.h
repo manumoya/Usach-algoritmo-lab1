@@ -58,14 +58,14 @@ void agregar_adyacencia(char origen[], char destino[], int costo){
 
 }
 
-
+/* deja en cero el grafo*/
 void resetear_grafo(char arreglo[]){
   for (int i=0; i<26; i++)
       arreglo[i]='\0';
 }
 
 /* procesa grafo */
-get_grafo(int largo){
+void procesar_grafo(int largo){
   //int largoGrafo=26;
 
   printf( "largo matr grafo : %d \n", largo);

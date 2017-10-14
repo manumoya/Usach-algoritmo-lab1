@@ -23,20 +23,39 @@ void cerrar_archivo(){
 
 int len_linea(char cadena[]){
     int j=0;
-    while (cadena[j] != '\0') 
+    while (cadena[j] != '\0'){
+    	//printf( "char line : %c \n", cadena[j] );
     	j++;
+    } 
     return j;
 }
 
 char get_val_prim_linea(char linea[], char ini_or_nronodo){
-	if ( ini_or_nronodo=='N'){
-    	//printf( "Nro : \n");
-        return (linea[0]);
+	if ( ini_or_nronodo=='D'){
+		printf( "largo line : %d \n", len_linea(linea) );
+		if (len_linea(linea)==4){
+			return ('0');
+		}else{
+			return (linea[0]);
+		}
+	}
+    if ( ini_or_nronodo=='U'){
+		if (len_linea(linea)==4){
+			return (linea[0]);
+		}else{
+			return (linea[1]);
+		}
+	}
+    if (ini_or_nronodo=='N'){
+    	//printf( "NOD : \n");
+    	if (len_linea(linea)==4){
+			return (linea[2]);
+		}else{
+			return (linea[3]);
+		}
     }
-    if (ini_or_nronodo=='D'){
-        //printf( "NOD : \n");
-    	return (linea[2]);
-    }
+    
+    return(0);
 }
 
 char get_val_otras_linea(char linea[], char tipo_valor){
@@ -53,23 +72,40 @@ char get_val_otras_linea(char linea[], char tipo_valor){
         //printf( "Cos : \n");
     	return (linea[4]);
     }
+    return(0);
+}
+
+int convertir_numero(char decena[], char unidad[]){
+	int unid= (int) unidad[0] -48;
+
+	if (decena[0]=='0'){
+		return unid;
+	}else{
+		int dece =(int) decena[0] -48;
+		return (dece*10+unid);
+	}
+	return(0);
 }
 
 void carga_matriz(int nro_linea, char linea[]){
 	if (nro_linea==1){
 		//carga primera linea
 		//linea2 = linea;
-		int nroNodos = (int)get_val_prim_linea(linea, 'N') -48;
+		char dece[1], unid[1];
+		dece[0] = get_val_prim_linea(linea, 'D');
+		unid[0] = get_val_prim_linea(linea, 'U');
+		int nroNodos = convertir_numero(dece, unid);
+
 		printf( "NRO : %d \n", nroNodos);
 		//linea2 = linea;
-		printf( "NOD : %c \n", get_val_prim_linea(linea, 'D'));
+		printf( "NOD : %c \n", get_val_prim_linea(linea, 'N'));
 
 		//printf("largo fila %d", len_linea(get_grafo(5)));
 		//char cad[5];
 
 		printf( "largo grafo : %d \n", nroNodos+1);
 
-		get_grafo(nroNodos+1); 
+		procesar_grafo(nroNodos+1); 
 	}else{
 		// carga rutas
 		int costo = (int)get_val_otras_linea(linea, 'C') -48;
