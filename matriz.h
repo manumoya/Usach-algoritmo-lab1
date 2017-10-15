@@ -4,13 +4,33 @@ int largo_matriz;
 char primer_nodo[1];
 char **matriz_grafo_din;
 
+int get_largo_matriz(){
+  return largo_matriz;
+}
+
+void set_valores_matriz(){
+  for (int i=0; i<largo_matriz; i++){
+    for (int j=0; j<largo_matriz; j++){
+      matriz_grafo_din[i][j]=0;
+    }   
+  }
+}
+
 void set_matriz_din(int largo){
   largo_matriz=largo+1;
+
+  if (largo_matriz>26){
+    printf( "\nMaximo 26 destinos!!\n" );
+    return;
+  }
+
   matriz_grafo_din = (char**)malloc(sizeof(int*)*largo_matriz);
 
   for (int i=0; i<largo_matriz; i++){
       matriz_grafo_din[i]=(char*)malloc(sizeof(int)*largo_matriz);
   }
+
+  set_valores_matriz();
 
   printf("larg matriz din : %d \n", largo_matriz );
 }

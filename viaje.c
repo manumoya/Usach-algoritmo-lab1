@@ -6,18 +6,25 @@
 #include "file.h"
 
 void resetear_rutas(int arrRutas[]){
-  for (int i=0; i<5; i++)
+  int largo_rutas = get_largo_matriz();
+  for (int i=0; i<largo_rutas; i++)
       arrRutas[i]=0;
 }
 void imprimir_rutas(int arrRutas[]){
-  for (int i=0; i<5; i++){
+  int largo_rutas = get_largo_matriz();
+  for (int i=0; i<largo_rutas; i++){
     printf("ady %d ", arrRutas[i]);
     printf("\n"); 
   }
 }
 
 void recorre_rutas(int posNodoIni, Pila *pila){
-  int nuevas_rutas[5];
+  //int nuevas_rutas[5];
+
+  int largo_rutas = get_largo_matriz();
+  int *nuevas_rutas;
+  nuevas_rutas = (int*)malloc(sizeof(int*)*largo_matriz);
+
   resetear_rutas(nuevas_rutas);
   
   printf("nodo ini pos %d ", posNodoIni);
