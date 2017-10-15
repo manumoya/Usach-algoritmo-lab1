@@ -94,6 +94,8 @@ void carga_matriz(int nro_linea, char linea[]){
 		unid[0] = get_val_prim_linea(linea, 'U');
 		int nroNodos = convertir_numero(dece, unid);
 
+		primer_nodo[0] = get_val_prim_linea(linea, 'N');
+
 		/*
 		printf( "NRO : %d \n", nroNodos);
 		printf( "NOD : %c \n", get_val_prim_linea(linea, 'N'));

@@ -107,7 +107,8 @@ int main() {
   //generar_grafo("ABCD");
   //imprimir_grafo();
 
-  primer_nodo[0]='A';
+  //set_primer_nodo("B");
+  //primer_nodo[0]='B';
   abrir_archivo();
   leer_archivo();
   cerrar_archivo();
@@ -122,8 +123,13 @@ int main() {
   imprimir_grafo();
   */
 
-  push(pila,"A", 0);
-  recorre_rutas( posicion_nodo("A"), pila);
+  //char prim_nodo[1];
+  //prim_nodo[0]= get_primer_nodo();
+
+  //printf("prime nodo %c \n", get_primer_nodo());
+
+  push(pila, &primer_nodo[0], 0);
+  recorre_rutas( posicion_nodo( &primer_nodo[0] ), pila);
 
 
 }

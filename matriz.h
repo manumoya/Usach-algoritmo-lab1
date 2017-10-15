@@ -8,6 +8,15 @@ int get_largo_matriz(){
   return largo_matriz;
 }
 
+/*void set_primer_nodo(char prim_nodo[]){
+  primer_nodo[0]=prim_nodo[0];
+}*/
+
+/*char get_primer_nodo(){
+  printf("1er nod %c \n", primer_nodo[0]);
+  return primer_nodo[0];
+}*/
+
 void set_valores_matriz(){
   for (int i=0; i<largo_matriz; i++){
     for (int j=0; j<largo_matriz; j++){
