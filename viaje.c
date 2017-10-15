@@ -100,7 +100,7 @@ int main() {
   //generar_grafo("ABCD");
   //imprimir_grafo();
 
-
+  primer_nodo[0]='A';
   abrir_archivo();
   leer_archivo();
   cerrar_archivo();

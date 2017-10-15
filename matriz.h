@@ -1,7 +1,7 @@
 /*  ======= FUNCIONES DE MATRIZ  ========== */
 int largo =5;
 char matriz_grafo[5][5];
-
+char primer_nodo[1];
 
 
 /* generar grafo */
@@ -49,15 +49,20 @@ int posicion_nodo(char letra[]){
 void agregar_adyacencia(char origen[], char destino[], int costo){
   int pos_origen=posicion_nodo(origen);
   int pos_destino=posicion_nodo(destino); 
+  int pos_primer_nodo=posicion_nodo(&primer_nodo[0]);
+
+  printf("primer nodo %s ", &primer_nodo[0] ); 
+  //printf(" pos prime nodo %d ", pos_primer_nodo ); 
+  printf(" pos orig %d ", pos_origen ); 
+  printf(" pos dsti %d ", pos_destino ); 
+  printf("\n"); 
+
+  /*  no puede ir al nodo origen  */
+  if (pos_destino != pos_primer_nodo){
+    matriz_grafo[pos_origen][pos_destino]=costo;  
+  }
 
   
-  /* printf("pos orig %d ", pos_origen ); 
-  printf("pos dsti %d ", pos_destino ); 
-  printf("\n"); 
-  */  
-
-
-  matriz_grafo[pos_origen][pos_destino]=costo;
 
 }
 

@@ -4,3 +4,4 @@ B C 2
 B D 3
 D C 4
 B A 9
+D A 3
