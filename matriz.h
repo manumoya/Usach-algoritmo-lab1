@@ -1,16 +1,34 @@
 /*  ======= FUNCIONES DE MATRIZ  ========== */
-int largo =5;
-char matriz_grafo[5][5];
+int largo_matriz;
+//char matriz_grafo[5][5];
 char primer_nodo[1];
+char **matriz_grafo_din;
 
+void set_matriz_din(int largo){
+  largo_matriz=largo+1;
+  matriz_grafo_din = (char**)malloc(sizeof(int*)*largo_matriz);
+
+  for (int i=0; i<largo_matriz; i++){
+      matriz_grafo_din[i]=(char*)malloc(sizeof(int)*largo_matriz);
+  }
+
+  printf("larg matriz din : %d \n", largo_matriz );
+}
 
 /* generar grafo */
 void generar_grafo(char vertices[]) {
   for(int i=0; i<5 && vertices[i] != '\0'; ++i){
     //printf("char graf : %c", vertices[i] );
     //printf("\n");
+    
+    /*
     matriz_grafo[0][i+1]=vertices[i];
     matriz_grafo[i+1][0]=vertices[i];
+    */
+
+    matriz_grafo_din[0][i+1]=vertices[i];
+    matriz_grafo_din[i+1][0]=vertices[i];
+
   }
 }
 
@@ -20,9 +38,9 @@ void imprimir_grafo(){
   for (int i=0; i<5; i++){
     for (int j=0; j<5; j++){
       if (j==0 || i==0){
-        printf("%c ", matriz_grafo[i][j]);
+        printf("%c ", matriz_grafo_din[i][j]);
       }else{
-        printf("%d ", matriz_grafo[i][j]);
+        printf("%d ", matriz_grafo_din[i][j]);
       }  
     }
     printf("\n");   
@@ -37,7 +55,7 @@ int posicion_nodo(char letra[]){
   */
 
   for (int i=0; i<5; i++){
-    if ( matriz_grafo[0][i] == letra[0]){
+    if ( matriz_grafo_din[0][i] == letra[0]){
       i=6;
       posicion--;
     }
@@ -51,15 +69,16 @@ void agregar_adyacencia(char origen[], char destino[], int costo){
   int pos_destino=posicion_nodo(destino); 
   int pos_primer_nodo=posicion_nodo(&primer_nodo[0]);
 
+  /*
   printf("primer nodo %s ", &primer_nodo[0] ); 
-  //printf(" pos prime nodo %d ", pos_primer_nodo ); 
   printf(" pos orig %d ", pos_origen ); 
   printf(" pos dsti %d ", pos_destino ); 
   printf("\n"); 
+  */
 
   /*  no puede ir al nodo origen  */
   if (pos_destino != pos_primer_nodo){
-    matriz_grafo[pos_origen][pos_destino]=costo;  
+    matriz_grafo_din[pos_origen][pos_destino]=costo;  
   }
 
   
@@ -74,7 +93,7 @@ void resetear_grafo(char arreglo[]){
 
 /* procesa grafo */
 void procesar_grafo(int largo){
-  //int largoGrafo=26;
+  //largo_matriz = largo;
 
   //printf( "largo matr grafo : %d \n", largo);
 
@@ -88,4 +107,5 @@ void procesar_grafo(int largo){
   }
   generar_grafo(arrGrafoOut);
   imprimir_grafo();
+  printf("\n");
 }

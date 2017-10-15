@@ -26,7 +26,7 @@ void recorre_rutas(int posNodoIni, Pila *pila){
   /* guarda todas las adyacencias del nodo*/
   int cont_ruta=0;
   for (int i=1; i<5; i++){
-    int valor = matriz_grafo[posNodoIni][i];
+    int valor = matriz_grafo_din[posNodoIni][i];
     if (valor != 0){
       //printf("pos nodo %c", matriz_grafo[0][i]); 
       //printf(" pos nodo costo %d", matriz_grafo[posNodoIni][i]); 
@@ -37,7 +37,7 @@ void recorre_rutas(int posNodoIni, Pila *pila){
   }
   printf("\n");
   //imprimir_rutas(nuevas_rutas);
-  int hay_ciclo=existe_ciclo(pila, &matriz_grafo[posNodoIni][0]);
+  int hay_ciclo=existe_ciclo(pila, &matriz_grafo_din[posNodoIni][0]);
   //printf("nodo esta en pila, ciclo? %d \n", hay_ciclo);
   
   if (hay_ciclo==1){
@@ -56,8 +56,8 @@ void recorre_rutas(int posNodoIni, Pila *pila){
     /* calculo las rutas de todas las adyacencias*/
     for (int i=0; i<5; i++){
       if (nuevas_rutas[i]!=0){
-        char nombre_nodo = matriz_grafo[nuevas_rutas[i]][0];
-        int costo_nodo =matriz_grafo[posNodoIni][nuevas_rutas[i]];
+        char nombre_nodo = matriz_grafo_din[nuevas_rutas[i]][0];
+        int costo_nodo =matriz_grafo_din[posNodoIni][nuevas_rutas[i]];
         push(pila, &nombre_nodo, costo_nodo);
         //printf("Push ruta \n");
         //print_cola(cola);

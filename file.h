@@ -89,8 +89,6 @@ int convertir_numero(char decena[], char unidad[]){
 
 void carga_matriz(int nro_linea, char linea[]){
 	if (nro_linea==1){
-		//carga primera linea
-		//linea2 = linea;
 		char dece[1], unid[1];
 		dece[0] = get_val_prim_linea(linea, 'D');
 		unid[0] = get_val_prim_linea(linea, 'U');
@@ -101,7 +99,7 @@ void carga_matriz(int nro_linea, char linea[]){
 		printf( "NOD : %c \n", get_val_prim_linea(linea, 'N'));
 		printf( "largo grafo : %d \n", nroNodos+1);
 		*/
-
+		set_matriz_din(nroNodos+1);
 		procesar_grafo(nroNodos+1); 
 	}else{
 		// carga rutas
@@ -138,4 +136,5 @@ void leer_archivo(){
 		//fprintf(stdout , "%s\n\n\n",linea);
 	}
 	imprimir_grafo();
+	printf("\n");
 }
