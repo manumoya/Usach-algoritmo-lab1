@@ -43,8 +43,8 @@ void recorre_rutas(int posNodoIni, Pila *pila){
   if (hay_ciclo==1){
     printf("hay ciclo,  calcula viaje %i", posNodoIni);
     printf("\n");
-    pop(pila);
-    //print_pila(pila);
+    //pop(pila);
+    print_pila(pila);
 
   }else if (cont_ruta==0){
     printf("sin ruta calcula viaje %i", posNodoIni);

@@ -95,6 +95,7 @@ int existe_ciclo(Pila *pila, char nodo[]){
     printf("\n");
     printf(" nodo inex: %c", nodo[0]);
     */
+    //if (auxiliar->nombre[0]==nodo[0] && cont_pila>1){
     if (auxiliar->nombre[0]==nodo[0] && cont_pila>1){
       validacion=1;
     }
