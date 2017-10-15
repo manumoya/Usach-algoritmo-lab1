@@ -32,7 +32,7 @@ int len_linea(char cadena[]){
 
 char get_val_prim_linea(char linea[], char ini_or_nronodo){
 	if ( ini_or_nronodo=='D'){
-		printf( "largo line : %d \n", len_linea(linea) );
+		//printf( "largo line : %d \n", len_linea(linea) );
 		if (len_linea(linea)==4){
 			return ('0');
 		}else{
@@ -96,14 +96,11 @@ void carga_matriz(int nro_linea, char linea[]){
 		unid[0] = get_val_prim_linea(linea, 'U');
 		int nroNodos = convertir_numero(dece, unid);
 
+		/*
 		printf( "NRO : %d \n", nroNodos);
-		//linea2 = linea;
 		printf( "NOD : %c \n", get_val_prim_linea(linea, 'N'));
-
-		//printf("largo fila %d", len_linea(get_grafo(5)));
-		//char cad[5];
-
 		printf( "largo grafo : %d \n", nroNodos+1);
+		*/
 
 		procesar_grafo(nroNodos+1); 
 	}else{
@@ -115,11 +112,13 @@ void carga_matriz(int nro_linea, char linea[]){
 
 		agregar_adyacencia(origen, destino, costo);
 
+		/*
 		printf( "Orig : %c \n", origen[0]);
 		printf( "Dest : %c \n", destino[0]);
 		printf( "Cos : %d \n", costo);	
+		*/
 	}
-	printf("\n");	
+	//printf("\n");	
 }
 
 void leer_archivo(){
@@ -129,14 +128,14 @@ void leer_archivo(){
 	while (!feof(itinerario)){
 		fgets(linea,sizeof(linea),itinerario);
 		
-		//printf("largo fila %d", len_linea(linea)); 
-		printf(" fila %d", nro_linea); 
+		/*printf(" fila %d", nro_linea); 
 		printf("\n");
-
+		*/
 		carga_matriz(nro_linea, linea);
 
 		nro_linea++;
 		
 		//fprintf(stdout , "%s\n\n\n",linea);
 	}
+	imprimir_grafo();
 }

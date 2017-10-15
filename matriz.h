@@ -7,8 +7,8 @@ char matriz_grafo[5][5];
 /* generar grafo */
 void generar_grafo(char vertices[]) {
   for(int i=0; i<5 && vertices[i] != '\0'; ++i){
-    printf("char graf : %c", vertices[i] );
-    printf("\n");
+    //printf("char graf : %c", vertices[i] );
+    //printf("\n");
     matriz_grafo[0][i+1]=vertices[i];
     matriz_grafo[i+1][0]=vertices[i];
   }
@@ -32,8 +32,9 @@ void imprimir_grafo(){
 int posicion_nodo(char letra[]){
   int posicion=0;
 
-  printf("letra %s ", letra);
+  /* printf("letra %s ", letra);
   printf("\n"); 
+  */
 
   for (int i=0; i<5; i++){
     if ( matriz_grafo[0][i] == letra[0]){
@@ -49,9 +50,11 @@ void agregar_adyacencia(char origen[], char destino[], int costo){
   int pos_origen=posicion_nodo(origen);
   int pos_destino=posicion_nodo(destino); 
 
-  printf("pos orig %d ", pos_origen ); 
+  
+  /* printf("pos orig %d ", pos_origen ); 
   printf("pos dsti %d ", pos_destino ); 
-  printf("\n");   
+  printf("\n"); 
+  */  
 
 
   matriz_grafo[pos_origen][pos_destino]=costo;
@@ -68,8 +71,7 @@ void resetear_grafo(char arreglo[]){
 void procesar_grafo(int largo){
   //int largoGrafo=26;
 
-  printf( "largo matr grafo : %d \n", largo);
-
+  //printf( "largo matr grafo : %d \n", largo);
 
   char arrGrafoOut[26];
   resetear_grafo(arrGrafoOut);
@@ -77,9 +79,8 @@ void procesar_grafo(int largo){
   char arrGrafo[26]="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   for (int i=0; i<largo; i++){
       arrGrafoOut[i]=arrGrafo[i];
-      printf("char graf: %c \n", arrGrafoOut[i] );
+      //printf("char graf: %c \n", arrGrafoOut[i] );
   }
-  //return arrGrafoOut[];
-
   generar_grafo(arrGrafoOut);
+  imprimir_grafo();
 }

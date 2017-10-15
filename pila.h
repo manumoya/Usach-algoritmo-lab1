@@ -29,8 +29,9 @@ void push(Pila *pila, char nombre[20], int costo) {
   nuevo->siguiente = NULL;
 
   /* Si primero es NULL, la cola estaba vacía, ahora primero apuntará también al nuevo nodo */
-  printf(" \n pushh nodo: %s", nuevo->nombre);
+  /*printf(" \n pushh nodo: %s", nuevo->nombre);
   printf("\n");
+  */
   
   if(pila->inicio==NULL){
     //printf("\n Acá pushh 1ro: %s ",nuevo->nombre);
@@ -51,14 +52,15 @@ void pop(Pila *pila) {
   Nodo *nodo_pop;
   //if (primero==NULL){
   if (pila->inicio==NULL){
-    printf( "\nLa lista está vacía!! (pop)\n" );
+    //printf( "\nLa lista está vacía!! (pop)\n" );
     return;
   }  
   nodo_pop = pila->inicio;
   pila->inicio = nodo_pop->siguiente;
   
-  printf("pop primero: %s", nodo_pop->nombre);
+  /*printf("pop primero: %s", nodo_pop->nombre);
   printf("\n");
+  */
   free(nodo_pop);
 }
 
@@ -74,5 +76,31 @@ void print_pila(Pila *pila){
     printf("\n");
     auxiliar = auxiliar->siguiente;
   }
+  //printf("\n");
+}
+
+
+/* ver si existe nodo */
+int existe_ciclo(Pila *pila, char nodo[]){
+  Nodo *auxiliar;
+  auxiliar = pila->inicio;
+  printf("\nMostrando pila completa:\n");
+  if (auxiliar==NULL) printf( "\nLa lista está vacía!!\n" );
+  int validacion=0;
+  int cont_pila=0;
+  while (auxiliar!=NULL && validacion==0) {
+    /*
+    printf("nombre: %s", auxiliar->nombre);
+    printf(" costo: %d", auxiliar->costo);
+    printf("\n");
+    printf(" nodo inex: %c", nodo[0]);
+    */
+    if (auxiliar->nombre[0]==nodo[0] && cont_pila>1){
+      validacion=1;
+    }
+    auxiliar = auxiliar->siguiente;
+    cont_pila++;
+  }
   printf("\n");
+  return (validacion);
 }

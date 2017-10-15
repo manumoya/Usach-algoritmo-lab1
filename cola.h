@@ -68,13 +68,13 @@ void pop(Cola *cola) {
 void print_cola(Cola *cola){
 	Nodo *auxiliar;
 	auxiliar = cola->inicio;
-    printf("\nMostrando cola completa:\n");
-    if (auxiliar==NULL) printf( "\nLa lista está vacía!!\n" );
-    while (auxiliar!=NULL) {
-    	printf("nombre: %s", auxiliar->nombre);
-      printf(" costo: %d", auxiliar->costo);
-      printf("\n");
-        auxiliar = auxiliar->siguiente;
-    }
+  printf("\nMostrando cola completa:\n");
+  if (auxiliar==NULL) printf( "\nLa lista está vacía!!\n" );
+  while (auxiliar!=NULL) {
+    printf("nombre: %s", auxiliar->nombre);
+    printf(" costo: %d", auxiliar->costo);
     printf("\n");
+    auxiliar = auxiliar->siguiente;
+  }
+  printf("\n");
 }

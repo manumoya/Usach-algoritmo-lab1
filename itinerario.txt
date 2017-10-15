@@ -3,3 +3,4 @@ A B 1
 B C 2
 B D 3
 D C 4
+B A 9

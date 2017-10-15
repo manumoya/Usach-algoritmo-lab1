@@ -37,8 +37,16 @@ void recorre_rutas(int posNodoIni, Pila *pila){
   }
   printf("\n");
   //imprimir_rutas(nuevas_rutas);
+  int hay_ciclo=existe_ciclo(pila, &matriz_grafo[posNodoIni][0]);
+  //printf("nodo esta en pila, ciclo? %d \n", hay_ciclo);
+  
+  if (hay_ciclo==1){
+    printf("hay ciclo,  calcula viaje %i", posNodoIni);
+    printf("\n");
+    pop(pila);
+    //print_pila(pila);
 
-  if (cont_ruta==0){
+  }else if (cont_ruta==0){
     printf("sin ruta calcula viaje %i", posNodoIni);
     printf("\n");
     print_pila(pila);
@@ -51,14 +59,14 @@ void recorre_rutas(int posNodoIni, Pila *pila){
         char nombre_nodo = matriz_grafo[nuevas_rutas[i]][0];
         int costo_nodo =matriz_grafo[posNodoIni][nuevas_rutas[i]];
         push(pila, &nombre_nodo, costo_nodo);
-        printf("Push ruta \n");
+        //printf("Push ruta \n");
         //print_cola(cola);
         //printf(" nodo nombre %c", nombre_nodo); 
         //printf(" - nodo costo %d", costo_nodo); 
 
         recorre_rutas(nuevas_rutas[i], pila);
         pop(pila);
-        printf("ruta %d ", nuevas_rutas[i]);
+        //printf("ruta %d ", nuevas_rutas[i]);
         printf("\n");
       }
     }
@@ -110,6 +118,5 @@ int main() {
   push(pila,"A", 0);
   recorre_rutas( posicion_nodo("A"), pila);
 
-  
-  
+
 }
