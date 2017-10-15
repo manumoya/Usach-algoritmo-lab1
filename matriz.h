@@ -17,7 +17,7 @@ void set_matriz_din(int largo){
 
 /* generar grafo */
 void generar_grafo(char vertices[]) {
-  for(int i=0; i<5 && vertices[i] != '\0'; ++i){
+  for(int i=0; i<largo_matriz && vertices[i] != '\0'; ++i){
     //printf("char graf : %c", vertices[i] );
     //printf("\n");
     
@@ -35,8 +35,8 @@ void generar_grafo(char vertices[]) {
 
 /* imprimir grafo */
 void imprimir_grafo(){
-  for (int i=0; i<5; i++){
-    for (int j=0; j<5; j++){
+  for (int i=0; i<largo_matriz; i++){
+    for (int j=0; j<largo_matriz; j++){
       if (j==0 || i==0){
         printf("%c ", matriz_grafo_din[i][j]);
       }else{
@@ -54,9 +54,9 @@ int posicion_nodo(char letra[]){
   printf("\n"); 
   */
 
-  for (int i=0; i<5; i++){
+  for (int i=0; i<largo_matriz; i++){
     if ( matriz_grafo_din[0][i] == letra[0]){
-      i=6;
+      i=largo_matriz+1;
       posicion--;
     }
     posicion++;
@@ -87,7 +87,7 @@ void agregar_adyacencia(char origen[], char destino[], int costo){
 
 /* deja en cero el grafo*/
 void resetear_grafo(char arreglo[]){
-  for (int i=0; i<26; i++)
+  for (int i=0; i<largo_matriz; i++)
       arreglo[i]='\0';
 }
 

@@ -25,7 +25,7 @@ void recorre_rutas(int posNodoIni, Pila *pila){
 
   /* guarda todas las adyacencias del nodo*/
   int cont_ruta=0;
-  for (int i=1; i<5; i++){
+  for (int i=1; i<largo_matriz; i++){
     int valor = matriz_grafo_din[posNodoIni][i];
     if (valor != 0){
       //printf("pos nodo %c", matriz_grafo[0][i]); 
@@ -54,7 +54,7 @@ void recorre_rutas(int posNodoIni, Pila *pila){
 
   }else{
     /* calculo las rutas de todas las adyacencias*/
-    for (int i=0; i<5; i++){
+    for (int i=0; i<largo_matriz; i++){
       if (nuevas_rutas[i]!=0){
         char nombre_nodo = matriz_grafo_din[nuevas_rutas[i]][0];
         int costo_nodo =matriz_grafo_din[posNodoIni][nuevas_rutas[i]];
