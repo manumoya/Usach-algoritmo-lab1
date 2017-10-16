@@ -27,7 +27,7 @@ void recorre_rutas(int posNodoIni, Pila *pila){
 
   resetear_rutas(nuevas_rutas);
   
-  printf("nodo ini pos %d ", posNodoIni);
+  //printf("nodo ini pos %d ", posNodoIni);
   printf("\n"); 
 
   /* guarda todas las adyacencias del nodo*/
@@ -48,13 +48,13 @@ void recorre_rutas(int posNodoIni, Pila *pila){
   //printf("nodo esta en pila, ciclo? %d \n", hay_ciclo);
   
   if (hay_ciclo==1){
-    printf("hay ciclo,  calcula viaje %i", posNodoIni);
+    printf("hay ciclo,  calcula viaje \n");
     printf("\n");
     //pop(pila);
-    print_pila(pila);
+    print_pila_con_ciclo(pila);
 
   }else if (cont_ruta==0){
-    printf("sin ruta calcula viaje %i", posNodoIni);
+    printf("sin ruta calcula viaje  \n");
     printf("\n");
     print_pila(pila);
     //pop(cola);

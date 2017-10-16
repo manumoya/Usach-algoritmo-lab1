@@ -41,7 +41,7 @@ void set_matriz_din(int largo){
 
   set_valores_matriz();
 
-  printf("larg matriz din : %d \n", largo_matriz );
+  //printf("larg matriz din : %d \n", largo_matriz );
 }
 
 /* generar grafo */
@@ -105,12 +105,10 @@ void agregar_adyacencia(char origen[], char destino[], int costo){
   printf("\n"); 
   */
 
-  /*  no puede ir al nodo origen  */
+  /*  no puede ir al nodo origen  por lo que esta adyacencia no es valida*/
   if (pos_destino != pos_primer_nodo){
     matriz_grafo_din[pos_origen][pos_destino]=costo;  
   }
-
-  
 
 }
 

@@ -68,8 +68,12 @@ void pop(Pila *pila) {
 void print_pila(Pila *pila){
 	Nodo *auxiliar;
 	auxiliar = pila->inicio;
-  printf("\nMostrando pila completa:\n");
-  if (auxiliar==NULL) printf( "\nLa lista está vacía!!\n" );
+  
+  if (auxiliar==NULL){
+    printf( "\nLa lista está vacía!!\n" );
+  }else{
+    printf("\nMostrando pila completa:\n");
+  }  
   while (auxiliar!=NULL) {
     printf("nombre: %s", auxiliar->nombre);
     printf(" costo: %d", auxiliar->costo);
@@ -79,6 +83,27 @@ void print_pila(Pila *pila){
   //printf("\n");
 }
 
+
+void print_pila_con_ciclo(Pila *pila){
+  Nodo *auxiliar;
+  auxiliar = pila->inicio;
+  if (auxiliar==NULL){
+    printf( "\nLa lista está vacía!!\n" );
+  }else{
+    printf("\nMostrando pila completa:\n");
+  }
+  int nro_nodos=1;
+  while (auxiliar!=NULL) {
+    if (nro_nodos>1){
+      printf("nombre: %s", auxiliar->nombre);
+      printf(" costo: %d", auxiliar->costo);
+      printf("\n");
+    }
+    nro_nodos++;
+    auxiliar = auxiliar->siguiente;
+  }
+  //printf("\n");
+}
 
 /* ver si existe nodo */
 int existe_ciclo(Pila *pila, char nodo[]){
